@@ -5,9 +5,14 @@ description "Checking kana"
 #Check dependencies and directories
 installer php5-mcrypt
 installer php5-cgi
-mkdir /opt/user/config/kana/objects
-mkdir /opt/user/config/kana/sensors
-mkdir /opt/user/data/kana
+makedir /opt/user/config/kana
+makedir /opt/user/config/kana/objects
+makedir /opt/user/config/kana/sensors
+makedir /opt/user/data/kana
+makedir /opt/piget/kana/www/plugins/views
+makedir /opt/piget/kana/www/plugins/objects
+makedir /opt/piget/kana/www/plugins/sensors
+
 
 # Check permissions
 checkPermissions

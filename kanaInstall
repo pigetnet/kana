@@ -31,10 +31,6 @@ installer php5-cgi
 # Install previously installed plugins
 
 
-# Check permissions
-mkdir /opt/user/config/kana/objects
-mkdir /opt/user/config/kana/sensors
-mkdir /opt/user/data/kana
-checkPermissions
-
+# Check permissions / directory
+kanaCheck
 
