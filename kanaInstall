@@ -28,6 +28,8 @@ nginxDebug
 installer php5-mcrypt
 installer php5-cgi
 
+PiRestoreConfig
+
 # Install previously installed plugins
 
 

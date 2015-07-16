@@ -1,0 +1,15 @@
+#!/bin/bash
+type="objects"
+for dir in /opt/piget/kana/www/plugins/$type/*/
+do
+	pluginName=$(basename "$dir")
+	if [ -e "/opt/user/config/kana/install/installed/$pluginName.installed" ];then
+	   echo $pluginName "already installed"
+	else
+		if [ -e "$dir/install/install.sh" ];then
+			echo "Installing $pluginName"
+			"$dir/install/install.sh"
+			touch "/opt/user/config/kana/install/installed/$pluginName.installed"
+		fi
+	fi
+done

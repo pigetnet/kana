@@ -13,6 +13,8 @@ makedir /opt/piget/kana/www/plugins/views
 makedir /opt/piget/kana/www/plugins/objects
 makedir /opt/piget/kana/www/plugins/sensors
 
+chmod 700 -R /opt/piget/kana/www
+chown -R www-data:www-data /opt/piget/kana/www
 
 # Check permissions
 checkPermissions

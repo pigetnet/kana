@@ -1,0 +1,31 @@
+#!/bin/bash
+
+objectsFile="/opt/user/config/kana/install/repo/objects.txt"
+viewsFile="/opt/user/config/kana/install/repo/views.txt"
+sensorsFile="/opt/user/config/kana/install/repo/sensors.txt"
+
+if [ -e "$objectsFile" ];then
+description "Download Objects"
+	while read repo; do
+		reponame=$(echo $repo|awk -F kana- {'print $2'})
+		kanaAddCustom $repo "objects" $reponame
+	done < $objectsFile
+fi
+
+if [ -e "$viewsFile" ];then
+description "Download views"
+        while read repo; do
+                reponame=$(echo $repo|awk -F kana- {'print $2'})
+                kanaAddCustom $repo "views" $reponame
+        done < $objectsFile
+fi
+
+if [ -e "$objectsFile" ];then
+description "Download sensors"
+        while read repo; do
+                reponame=$(echo $repo|awk -F kana- {'print $2'})
+                kanaAddCustom $repo "sensors" $reponame
+        done < $objectsFile
+fi
+
+kanaCheck
