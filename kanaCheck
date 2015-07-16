@@ -1,0 +1,14 @@
+#!/bin/bash
+
+description "Checking kana"
+
+#Check dependencies and directories
+installer php5-mcrypt
+installer php5-cgi
+mkdir /opt/user/config/kana/objects
+mkdir /opt/user/config/kana/sensors
+mkdir /opt/user/data/kana
+
+# Check permissions
+checkPermissions
+
