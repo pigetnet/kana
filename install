@@ -1,0 +1,34 @@
+#!/bin/bash
+/show/description "Install Kana"
+/show/listecho "Samba -> Kana"
+/system/downloadModule samba
+/system/samba/install
+/system/samba/download kana_dev
+
+/show/listecho "Install wiringPi to manage GPIO" $OK
+/system/wiringPiInstall
+
+/show/listecho "Clone kana -> /opt/piget/kana/www" $OK
+/system/gitcloner madnerds/kana /opt/piget/kana/www
+
+/show/listecho "Install nginx webserver" $OK
+/system/downloadModule nginx
+/do/nginx/install
+
+/show/listecho "nginx -> /opt/piget/kana/wwww" $OK
+nginxDir /opt/piget/kana/www
+
+messagebox "Install additional librairies"
+/do/nginx/installSqlite
+/do/nginx/debug
+/system/install php5-mcrypt
+/system/install php5-cgi
+
+/do/pi/restoreConfig
+
+# Install previously installed plugins
+
+
+# Check permissions / directory
+/do/kana/check
+

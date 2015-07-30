@@ -4,23 +4,23 @@ pluginType=$1
 
 case "$pluginType" in
 	'objects')
-	gitcloner madnerds/kana-$pluginName "/opt/piget/kana/www/plugins/objects/$pluginName"
+	/system/gitcloner madnerds/kana-$pluginName "/opt/piget/kana/www/plugins/objects/$pluginName"
 	chmod 700 -R /opt/piget/kana/www/plugins/objects/$pluginName
 	chown -R www-data:www-data /opt/piget/kana/www/plugins/objects/$pluginName
 	;;
 	'views')
-	gitcloner madnerds/kana-$pluginName "/opt/piget/kana/www/plugins/views/$pluginName"
+	/system/gitcloner madnerds/kana-$pluginName "/opt/piget/kana/www/plugins/views/$pluginName"
 	chmod 700 -R /opt/piget/kana/www/plugins/views/$pluginName
 	chown -R www-data:www-data /opt/piget/kana/www/plugins/views/$pluginName
 	;;
 	'sensors')
-	gitcloner madnerds/kana-$pluginName "/opt/piget/kana/www/plugins/sensors/$pluginName"
+	/system/gitcloner madnerds/kana-$pluginName "/opt/piget/kana/www/plugins/sensors/$pluginName"
 	chmod 700 -R /opt/piget/kana/www/plugins/sensors/$pluginName
 	chown -R www-data:www-data /opt/piget/kana/www/plugins/sensors/$pluginName
 	;;
 	*)
-        errorBox "Wrong Plugin type"
-        usage 'kanaAdd "pluginType" "pluginName"'
-        example 'kanaAdd "objects" "led"'
+        /show/errorBox "Wrong Plugin type"
+        /show/usage 'kanaAdd "pluginType" "pluginName"'
+        /show/example 'kanaAdd "objects" "led"'
 	;;
 esac

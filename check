@@ -1,0 +1,21 @@
+#!/bin/bash
+
+/show/description "Checking kana"
+
+#Check dependencies and directories
+/system/install php5-mcrypt
+/system/install php5-cgi
+/system/makedir /opt/user/config/kana
+/system/makedir /opt/user/config/kana/objects
+/system/makedir /opt/user/config/kana/sensors
+/system/makedir /opt/user/data/kana
+/system/makedir /opt/piget/kana/www/plugins/views
+/system/makedir /opt/piget/kana/www/plugins/objects
+/system/makedir /opt/piget/kana/www/plugins/sensors
+
+chmod 700 -R /opt/piget/kana/www
+chown -R www-data:www-data /opt/piget/kana/www
+
+# Check permissions
+/system/checkPermissions
+
