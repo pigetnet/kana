@@ -1,34 +1,41 @@
 #!/bin/bash
 /show/description "Install Kana"
-/show/listecho "Samba -> Kana"
-/system/downloadModule samba
-/system/samba/install
-/system/samba/download kana_dev
 
-/show/listecho "Install wiringPi to manage GPIO" $OK
-/system/wiringPiInstall
-
+#Clone kana
 /show/listecho "Clone kana -> /opt/piget/kana/www" $OK
 /system/gitcloner madnerds/kana /opt/piget/kana/www
 
+#Nginx server installation
 /show/listecho "Install nginx webserver" $OK
 /system/downloadModule nginx
 /do/nginx/install
 
+#Nginx server directory to /do/kana/www
 /show/listecho "nginx -> /opt/piget/kana/wwww" $OK
-nginxDir /opt/piget/kana/www
+/do/nginx/dir /opt/piget/kana/www
 
-messagebox "Install additional librairies"
-/do/nginx/installSqlite
+#Install sqlite / debug / php libraries
+/do/messagebox "Install additional librairies"
+/do/nginx/installSQLite
 /do/nginx/debug
 /system/install php5-mcrypt
 /system/install php5-cgi
 
-/do/pi/restoreConfig
+#Restore configurations file if inside /boot/
+/pi/restoreConfig
 
 # Install previously installed plugins
-
+#TO DO
 
 # Check permissions / directory
 /do/kana/check
 
+#Install wiringPi
+/show/listecho "Install wiringPi to manage GPIO" $OK
+/pi/installWiringPi
+
+#Share user directory
+/show/listecho "Samba -> Kana"
+/system/downloadModule samba
+/do/samba/install
+/do/samba/shareUsers
