@@ -1,26 +1,38 @@
 #!/bin/bash
-pluginName=$2
 pluginType=$1
+pluginName=$2
 
 case "$pluginType" in
-	'objects')
-	/system/gitcloner madnerds/kana-$pluginName "/opt/piget/kana/www/plugins/objects/$pluginName"
-	chmod 700 -R /opt/piget/kana/www/plugins/objects/$pluginName
-	chown -R www-data:www-data /opt/piget/kana/www/plugins/objects/$pluginName
-	;;
-	'views')
-	/system/gitcloner madnerds/kana-$pluginName "/opt/piget/kana/www/plugins/views/$pluginName"
-	chmod 700 -R /opt/piget/kana/www/plugins/views/$pluginName
-	chown -R www-data:www-data /opt/piget/kana/www/plugins/views/$pluginName
-	;;
-	'sensors')
-	/system/gitcloner madnerds/kana-$pluginName "/opt/piget/kana/www/plugins/sensors/$pluginName"
-	chmod 700 -R /opt/piget/kana/www/plugins/sensors/$pluginName
-	chown -R www-data:www-data /opt/piget/kana/www/plugins/sensors/$pluginName
-	;;
-	*)
+        'objects')
+        /system/gitcloner madnerds/kana-$pluginName "/do/kana/www/plugins/objects/$pluginName"
+        chmod 700 -R /do/kana/www/plugins/objects/$pluginName
+        chown -R www-data:www-data /do/kana/www/plugins/objects/$pluginName
+        if [ -e /do/kana/www/plugins/objects/$pluginName/install/install.sh ];then
+                /do/kana/www/plugins/objects/$pluginName/install/install.sh
+        fi
+        ;;
+        'views')
+        /system/gitcloner madnerds/kana-$pluginName "/do/kana/www/plugins/views/$pluginName"
+        chmod 700 -R /do/kana/www/plugins/views/$pluginName
+        chown -R www-data:www-data /do/kana/www/plugins/views/$pluginName
+
+        if [ -e  /do/kana/www/plugins/views/$pluginName/install/install.sh];then
+                /do/kana/www/plugins/views/$pluginName/install/install.sh
+        fi
+        ;;
+        'sensors')
+        /system/gitcloner madnerds/kana-$pluginName "/do/kana/www/plugins/sensors/$pluginName"
+        chmod 700 -R /do/kana/www/plugins/sensors/$pluginName
+        chown -R www-data:www-data /do/kana/www/plugins/sensors/$pluginName
+
+        if [ -e /do/kana/www/plugins/sensors/$pluginName/install/install.sh ];then
+                /do/kana/www/plugins/sensors/$pluginName/install/install.sh
+        fi
+        ;;
+        *)
         /show/errorBox "Wrong Plugin type"
         /show/usage 'kanaAdd "pluginType" "pluginName"'
         /show/example 'kanaAdd "objects" "led"'
-	;;
+        ;;
 esac
+
