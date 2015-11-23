@@ -35,7 +35,7 @@
 /pi/installWiringPi
 
 #Share user directory
-/show/listecho "Samba -> Kana"
+#/show/listecho "Samba -> Kana"
 #/system/downloadModule samba
 #/do/samba/install
 #/do/samba/shareUsers

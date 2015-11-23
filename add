@@ -7,7 +7,8 @@ case "$pluginType" in
         /system/gitcloner madnerds/kana-$pluginName "/do/kana/www/plugins/objects/$pluginName"
         chmod 700 -R /do/kana/www/plugins/objects/$pluginName
         chown -R www-data:www-data /do/kana/www/plugins/objects/$pluginName
-        if [ -e /do/kana/www/plugins/objects/$pluginName/install/install.sh ];then
+        if [[ -e /do/kana/www/plugins/objects/$pluginName/install/install.sh ]]
+	  then
                 /do/kana/www/plugins/objects/$pluginName/install/install.sh
         fi
         ;;
@@ -16,7 +17,8 @@ case "$pluginType" in
         chmod 700 -R /do/kana/www/plugins/views/$pluginName
         chown -R www-data:www-data /do/kana/www/plugins/views/$pluginName
 
-        if [ -e  /do/kana/www/plugins/views/$pluginName/install/install.sh];then
+        if [[ -e  /do/kana/www/plugins/views/$pluginName/install/install.sh ]]
+	   then
                 /do/kana/www/plugins/views/$pluginName/install/install.sh
         fi
         ;;
@@ -25,7 +27,8 @@ case "$pluginType" in
         chmod 700 -R /do/kana/www/plugins/sensors/$pluginName
         chown -R www-data:www-data /do/kana/www/plugins/sensors/$pluginName
 
-        if [ -e /do/kana/www/plugins/sensors/$pluginName/install/install.sh ];then
+        if [[ -e /do/kana/www/plugins/sensors/$pluginName/install/install.sh ]]
+	 then
                 /do/kana/www/plugins/sensors/$pluginName/install/install.sh
         fi
         ;;

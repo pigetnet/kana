@@ -1,1 +1,1 @@
-tail -f /user/config/log/log
+tail -f /user/config/kana/log/log
