@@ -1,0 +1,9 @@
+#!/bin/bash
+/show/description "Install fail2ban" $OK
+/pi/install fail2ban
+/show/description "Add rules for failed" $OK
+/do/fail2ban/copyFilter /do/kana/default/kanaLogin.conf
+/do/fail2ban/createJailNginxError kanaLogin
+/show/listecho "Type /do/kana/unbanLogin to unban all login" $OK
+
+/do/nginx/https
