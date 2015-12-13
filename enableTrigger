@@ -1,0 +1,5 @@
+#!/bin/bash
+idTrigger=$1
+
+php-cgi /do/kana/www/actions.php type="triggers" id=$idTrigger state=1
+
