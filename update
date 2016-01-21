@@ -1,0 +1,6 @@
+#!/bin/bash
+/pi/updateGitRepo /do/kana/www
+
+#Add plugins update
+# OBJECTS
+# VIEWS
